@@ -462,7 +462,15 @@ public class CameraService: NSObject, Identifiable {
             }
         }
     }
-    
+
+    public var minAvailableVideoZoomFactor: CGFloat {
+        videoDeviceInput.device.minAvailableVideoZoomFactor
+    }
+
+    public var maxAvailableVideoZoomFactor: CGFloat {
+        videoDeviceInput.device.maxAvailableVideoZoomFactor
+    }
+
     public func set(zoom: CGFloat){
         let factor = zoom < 1 ? 1 : zoom
         let device = self.videoDeviceInput.device
