@@ -24,7 +24,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Camera-SwiftUI",
-            dependencies: []),
+            dependencies: [],
+            resources: [.copy("Resources/PrivacyInfo.xcprivacy")]),
         .testTarget(
             name: "Camera-SwiftUITests",
             dependencies: ["Camera-SwiftUI"]),
