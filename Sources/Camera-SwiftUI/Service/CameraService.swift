@@ -484,7 +484,21 @@ public class CameraService: NSObject, Identifiable {
             print(error.localizedDescription)
         }
     }
-    
+
+    public func ramp(toZoom zoom: CGFloat, withRate rate: Float) {
+        let factor = zoom < 1 ? 1 : zoom
+        let device = self.videoDeviceInput.device
+
+        do {
+            try device.lockForConfiguration()
+            device.ramp(toVideoZoomFactor: factor, withRate: rate)
+            device.unlockForConfiguration()
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
+
     //    MARK: Capture Photo
     
     /// - Tag: CapturePhoto
